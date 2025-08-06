@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Self Introduction Slide</title>
+  <style>
+    /* Reset and base */
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f4f6f8;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      color: #333;
+    }
+    .slide-container {
+      background: white;
+      width: 900px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      border-radius: 12px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: row;
+      font-size: 16px;
+    }
+    .left-panel {
+      width: 40%;
+      background: grey;
+      color: white;
+      padding: 36px 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    .left-panel img {
+      border-radius: 50%;
+      width: 250px;
+      height: 250px;
+      object-fit: cover;
+      margin-bottom: 24px;
+      
+    }
+    .left-panel h1 {
+      font-size: 2.2rem;
+      margin: 0 0 8px 0;
+    }
+    .left-panel h3 {
+      font-weight: 400;
+      font-size: 1.1rem;
+      margin: 0 0 16px 0;
+      opacity: 0.85;
+    }
+    .left-panel p {
+      font-size: 0.9rem;
+      line-height: 1.4;
+      opacity: 0.9;
+    }
+
+    .right-panel {
+      width: 60%;
+      padding: 36px 48px;
+      color: #222;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .right-panel h2 {
+      margin: 0 0 16px 0;
+      font-size: 1.8rem;
+      border-bottom: 3px solid #004aad;
+      padding-bottom: 8px;
+      width: fit-content;
+    }
+    .info-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 20px 0;
+    }
+    .info-list li {
+      margin-bottom: 12px;
+      font-weight: 600;
+      font-size: 1rem;
+      display: flex;
+      justify-content: space-between;
+    }
+    .info-list li span {
+      font-weight: 400;
+      color: #555;
+    }
+    .skills {
+      margin-top: 12px;
+    }
+    .skill-bar {
+      margin-bottom: 12px;
+    }
+    .skill-bar strong {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: 600;
+    }
+    .progress {
+      width: 100%;
+      background: #ddd;
+      border-radius: 10px;
+      overflow: hidden;
+      height: 12px;
+    }
+    .progress-bar {
+      height: 100%;
+      background: #004aad;
+      width: 0%;
+      border-radius: 10px;
+      transition: width 1s ease-in-out;
+    }
+
+    /* Button */
+    .btn-contact {
+      align-self: flex-start;
+      background: #004aad;
+      border: none;
+      color: white;
+      padding: 12px 28px;
+      font-size: 1rem;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      margin-top: 24px;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .btn-contact:hover {
+      background: #003080;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .slide-container {
+        width: 90%;
+        flex-direction: column;
+      }
+      .left-panel, .right-panel {
+        width: 100%;
+        padding: 24px;
+      }
+      .left-panel {
+        border-radius: 12px 12px 0 0;
+      }
+      .right-panel {
+        border-radius: 0 0 12px 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="slide-container">
+    <div class="left-panel">
+      <img src="self.jpeg" alt="Profile Photo" id="profile-pic" />
+      <h1 id="name"> BAVIGADDA RAKESH REDDY</h1>
+      <h3 id="title"> B.s.c Honours (c/s)</h3>
+      <p id="summary">Passionate about creating interactive user experiences and make it out new.</p>
+    </div>
+    <div class="right-panel">
+      <h2>About Me</h2>
+      <ul class="info-list">
+        <li>Email: <span id="email">brakeshreddy90@gmail.com</span></li>
+        <li>Phone: <span id="phone">+91 7815965623</span></li>
+        <li>Location: <span id="location"> Kurnool,Andhrapradesh</span></li>
+      </ul>
+      <h2>Skills</h2>
+      <div class="skills">
+        <div class="skill-bar">
+          <strong>HTML & CSS</strong>
+          <div class="progress"><div class="progress-bar" data-progress="90"></div></div>
+        </div>
+        <div class="skill-bar">
+          <strong>JavaScript</strong>
+          <div class="progress"><div class="progress-bar" data-progress="85"></div></div>
+        </div>
+        <div class="skill-bar">
+          <strong>Photoshop</strong>
+          <div class="progress"><div class="progress-bar" data-progress="70"></div></div>
+        </div>
+      </div>
+      <a href="index (2).html" target="_blank" class="btn-contact">Contact Me</a>
+    </div>
+  </div>
+
+  <script>
+    // Animate skill bars on page load
+    window.addEventListener('DOMContentLoaded', () => {
+      const bars = document.querySelectorAll('.progress-bar');
+      bars.forEach(bar => {
+        const progress = bar.getAttribute('data-progress');
+        setTimeout(() => {
+          bar.style.width = progress + '%';
+        }, 300);
+      });
+    });
+  </script>
+
+</body>
+</html>
